@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 from sklearn.experimental import enable_iterative_imputer #instalar antes de importar ver en google pypi sklearn
 from sklearn.impute import KNNImputer, IterativeImputer
 
@@ -117,3 +118,6 @@ def imputar_knn(df, lista_columnas):
     new_col = [col +"_knn" for col in lista_columnas]
     df[new_col]= data_imputed
     return df
+
+
+

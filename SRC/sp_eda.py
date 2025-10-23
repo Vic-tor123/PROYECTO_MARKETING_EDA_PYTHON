@@ -3,6 +3,7 @@ import pandas as pd
 
 
 
+
 def eda_preliminar(df):
     """
     Que realiza la funcion 
@@ -44,3 +45,6 @@ def eda_preliminar(df):
     print ('------------------------')
     print ('ESTADISTICOS NUMERICAS')
     display(df.describe().T)
+
+
+
