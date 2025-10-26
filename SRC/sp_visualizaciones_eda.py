@@ -16,9 +16,5 @@ def matriz_correlacion(df):
     mask = np.triu(np.ones_like(corr_matrix,dtype=bool))
 
     #Graficar el mapa de calor
-    sns.heatmap(corr_matrix,
-                annot=True,
-                vmin=-1,
-                vmax=1,
-                cmap='cool')
+    sns.heatmap(corr_matrix,annot=True,vmin=-1,vmax=1,cmap='cool', mask=mask)
     plt.show()
