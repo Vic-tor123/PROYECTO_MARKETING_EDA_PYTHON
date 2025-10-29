@@ -128,10 +128,10 @@ El cliente típico tiene 40 años, está casado y trabaja como administrativo, o
 La tasa de conversión es del 11.27%. Las llamadas típicas duran entre 2 y 5 minutos. Se realizan de media 2 o 3 intentos de contacto por cliente. El canal preferido es el teléfono móvil con un 63.71% de los contactos.
 
 ### Multicolinealidad Detectada
-Las cuatro variables económicas están muy correlacionadas entre sí (correlaciones entre 0.77 y 0.91). Esto significa que miden básicamente lo mismo: el estado de la economía. Para modelado se recomienda usar solo una o dos de estas variables.
+Las cuatro variables económicas están muy correlacionadas entre sí (correlaciones entre 0.77 y 0.91). Esto significa que miden básicamente lo mismo: el estado de la economía. Para posteriores análisis se podría prescindir de algunas de ellas.
 
-### Desbalanceo de Clases
-El dataset tiene 88.73% de rechazos frente a 11.27% de aceptaciones. Este desbalanceo requiere técnicas especiales como SMOTE o usar pesos en los modelos. Las métricas apropiadas son precision, recall y F1-score, no accuracy.
+### Desequilibrio en los resultados
+El dataset tiene 88.73% de rechazos frente a 11.27% de aceptaciones. A la hora de analizar los datos se tiene menos información sobre la gente que aceptó el producto.
 
 ### Outliers Informativos
 Se detectaron outliers en varias variables pero la mayoría son casos extremos válidos. Las llamadas muy largas (7.14% outliers) probablemente indican interés del cliente. Los clientes veteranos con muchos contactos previos (13.71% outliers) son un segmento importante. No se recomienda eliminar estos outliers sin analizar primero su relación con la conversión.
