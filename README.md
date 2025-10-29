@@ -120,21 +120,21 @@ marketing-campaign-analysis/
 
 ## Conclusiones
 
-### Perfil del Cliente
 
-El cliente típico tiene 40 años, está casado y trabaja como administrativo, obrero o técnico. Más de la mitad tiene educación superior. La mayoría nunca había sido contactada en campañas anteriores.
 
-### Efectividad de Campaña
-La tasa de conversión es del 11.27%. Las llamadas típicas duran entre 2 y 5 minutos. Se realizan de media 2 o 3 intentos de contacto por cliente. El canal preferido es el teléfono móvil con un 63.71% de los contactos.
+* El cliente típico tiene 40 años, está casado y trabaja como administrativo, obrero o técnico. Más de la mitad tiene educación superior. La mayoría nunca había sido contactada en campañas anteriores. La campaña invierte recursos en obreros y administrativos (baja conversión) mientras ignora estudiantes y jubilados (alta conversión).
 
-### Multicolinealidad Detectada
-Las cuatro variables económicas están muy correlacionadas entre sí (correlaciones entre 0.77 y 0.91). Esto significa que miden básicamente lo mismo: el estado de la economía. Para posteriores análisis se podría prescindir de algunas de ellas.
+* El canal móvil convierte tres veces más que teléfono fijo (14.74% vs 5.16%). Cada contacto que se pasa de fijo a móvil casi triplica las probabilidades de éxito.
 
-### Desequilibrio en los resultados
-El dataset tiene 88.73% de rechazos frente a 11.27% de aceptaciones. A la hora de analizar los datos se tiene menos información sobre la gente que aceptó el producto.
+* Clientes con éxito previo tienen una tasa del 65.32%, siete veces superior a clientes nuevos (8.82%). La campaña actual contacta mayormente a clientes sin historial, ignorando el segmento de mayor valor.
 
-### Outliers Informativos
-Se detectaron outliers en varias variables pero la mayoría son casos extremos válidos. Las llamadas muy largas (7.14% outliers) probablemente indican interés del cliente. Los clientes veteranos con muchos contactos previos (13.71% outliers) son un segmento importante. No se recomienda eliminar estos outliers sin analizar primero su relación con la conversión.
+* Hay alta correlación entre las varibales económicas. En el caso de seguir con estudios estaria bien simplificar a un par de ellas como la tasa de variación de empleo y el índice de precios.
+
+* La fuerte diferencia entre respuestas positivas y negativas ratio 8:1, limita la información disponible sobre clientes que aceptan, haciendo las conclusiones sobre este grupo menos sólidas estadísticamente.
+
+* Las variables demográficas no tienen problemas de correlación y todas pueden usarse sin redundancia.
+
+* La mayoría de outliers son casos extremos informativos que no deben eliminarse sin analizar su impacto en conversión.
 
 ## Contribuciones
 
