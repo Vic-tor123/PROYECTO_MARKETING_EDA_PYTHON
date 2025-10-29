@@ -1,12 +1,30 @@
+#tratamiento de datos
 import pandas as pd
 import numpy as np
+
+#visualizaciones
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 
 
 def matriz_correlacion(df):
+    """
+    Qué realiza la función  
+        Calcula y visualiza la matriz de correlación entre las columnas numéricas del DataFrame.  
+      
+    Qué incluye el análisis  
+        - Calcula la correlación de Pearson entre todas las columnas numéricas.  
+        - Genera un gráfico de mapa de calor (heatmap) usando seaborn.  
+        - Muestra solo la mitad superior de la matriz para mayor claridad.  
+        - Los valores se anotan y se colorean según la intensidad de correlación (-1 a 1).  
 
+    Parámetros:
+    df (pd.DataFrame): DataFrame sobre el que se calculará la matriz de correlación.
+
+    Returns:
+    None
+    """
     #calcular matriz de correlacion
     corr_matrix = df.corr(numeric_only=True)
     #crear la figura
@@ -21,9 +39,24 @@ def matriz_correlacion(df):
 
 
 
-# visulalizacion columnas categoricas (si le pasamos df_nulos nos dara la visualizacion para df con columnas con nulos)
-
 def subplot_col_cat(df):
+    """
+    Qué realiza la función  
+        Genera gráficos de barras para todas las columnas categóricas del DataFrame, mostrando la distribución de cada categoría.  
+      
+    Qué incluye el análisis  
+        - Identifica todas las columnas de tipo object o category.  
+        - Crea un subplot con 3 gráficos por fila y filas suficientes según el número de columnas.  
+        - Grafica la frecuencia de cada categoría usando seaborn countplot.  
+        - Añade títulos, etiquetas y rotación de ejes para mejorar la legibilidad.  
+        - Elimina subplots sobrantes si hay menos columnas que subplots generados.  
+
+    Parámetros:
+    df (pd.DataFrame): DataFrame sobre el que se generarán los gráficos.
+
+    Returns:
+    None
+    """
     #seleccionar columas categoricas
     categorical_cols = df.select_dtypes(include=['object','category']).columns
     if len(categorical_cols)==0:
@@ -53,10 +86,25 @@ def subplot_col_cat(df):
     plt.show()
 
         
-      # Columnas numericas, visualizacion de outliers, SUBPLOTS
 
 def subplot_col_num(df):
+    """
+    Qué realiza la función  
+        Genera histogramas y boxplots para todas las columnas numéricas del DataFrame, permitiendo visualizar la distribución y detectar posibles outliers.  
+      
+    Qué incluye el análisis  
+        - Identifica todas las columnas numéricas.  
+        - Crea subplots con dos gráficos por fila: histograma y boxplot.  
+        - Ajusta tamaño de figura según la cantidad de columnas.  
+        - Configura títulos, etiquetas y bins para los histogramas.  
+        - Elimina ejes sobrantes si hay menos columnas que subplots.  
 
+    Parámetros:
+    df (pd.DataFrame): DataFrame sobre el que se generarán los gráficos.
+
+    Returns:
+    None
+    """
     col_nums=df.select_dtypes(include='number').columns
     num_graph = len(col_nums)
 
@@ -83,6 +131,25 @@ def subplot_col_num(df):
 
 
 def mapa(df,lat, lon, valores):
+    """
+    Qué realiza la función  
+        Crea un mapa interactivo de puntos utilizando coordenadas geográficas, mostrando la intensidad o tamaño de un valor asociado a cada punto.  
+      
+    Qué incluye la visualización  
+        - Utiliza Plotly Express para generar un scatter_mapbox.  
+        - Cada punto se coloca según latitud y longitud.  
+        - El tamaño de los puntos refleja los valores de la columna especificada.  
+        - Configura el zoom inicial y el estilo del mapa.
+
+    Parámetros:
+    df (pd.DataFrame): DataFrame que contiene las coordenadas y valores a graficar.
+    lat (str): Nombre de la columna de latitud.
+    lon (str): Nombre de la columna de longitud.
+    valores (str): Nombre de la columna cuyos valores determinarán el tamaño de los puntos.
+
+    Returns:
+    None
+    """
     fig = px.scatter_mapbox(df, lat= lat, lon = lon, size = valores,
                             zoom = 1, mapbox_style = 'open-street-map')
     fig.show()  
